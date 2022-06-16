@@ -25,7 +25,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: auto 50px 50px 50px;
+    margin: auto 70px 50px 70px;
   }
 
   .jogo {
@@ -51,7 +51,9 @@
     justify-content: center;
   }
 
-
+.escondido {
+  display:none;
+}
 
   @media (max-width: 614px) {
     .titulo {
