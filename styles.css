@@ -28,11 +28,6 @@
     margin: auto 70px 50px 70px;
   }
 
-  .jogo {
-   display: flex;
-   flex-direction: column;
-  }
-
   img {
     width: 100px;
     height: 100px;
@@ -47,6 +42,7 @@
     background-color: #A7E9AF;
     margin: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
