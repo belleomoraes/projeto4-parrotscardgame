@@ -4,6 +4,7 @@ while (numCartas < 4 || numCartas > 14 || numCartas % 2 !== 0) {
   numCartas = Number(prompt("Com quantas cartas você quer jogar?"));
 }
 
+//criando um baralho aleatório
 let gifs = [
   `imagens/bobrossparrot.gif`,
   `imagens/explodyparrot.gif`,
@@ -13,7 +14,7 @@ let gifs = [
   `imagens/unicornparrot.gif`,
   `imagens/tripletsparrot.gif`,
 ];
-//criando um baralho aleatório
+
 let jogos = [];
 let i = 0;
 
@@ -43,26 +44,38 @@ function mostrarBaralho() {
 
 mostrarBaralho();
 
-
-
-
 function comparador() { 
 	return Math.random() - 0.5; 
 }
 
 
 //clicar na carta
-
 let cardsClicados = [];
-function virar(elemento) {
-  let cardVirado = document.querySelector(".front .escondido");
-  if (cardVirado !== null) {
-    let cardVirado2 = cardVirado.querySelector(".back");
-    cardVirado.classList.remove("escondido");
-    cardVirado2.classList.add("escondido");
+let clicks = 0;
+function virar(carta) {
+  let frente = carta.querySelector(".front");
+  let verso = carta.querySelector(".back");
+  let foiClicado = frente.classList.contains("escondido");
+  if (foiClicado) {
+    frente.classList.remove("escondido");
+    verso.classList.add("escondido");
+  } else {
+    frente.classList.add("escondido");
+    verso.classList.remove("escondido");
+    clicks ++;
   }
-  elemento.querySelector(".front").classList.add("escondido");
-  elemento.querySelector(".back").classList.remove("escondido");
-  cardsClicados.push(elemento);
-  //isso tem que acontecer ate cardsClicados.length === 2
+  console.log(clicks);
+  cardsClicados.push(carta);
+  console.log(cardsClicados)
+  carta.querySelector(".front").classList.add("escondido");
+  carta.querySelector(".back").classList.remove("escondido");
 }
+
+
+
+
+
+
+
+
+
