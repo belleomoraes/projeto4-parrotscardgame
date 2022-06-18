@@ -13,27 +13,44 @@ let gifs = [
   `imagens/unicornparrot.gif`,
   `imagens/tripletsparrot.gif`,
 ];
-
 //criando um baralho aleatório
 let jogos = [];
 let i = 0;
-function criarBaralhoAleatorio() {
-  for (let i = 0; jogos.length <= numCartas/2; i++) {
+
+gifs.sort(comparador);
+for (let i = 0; jogos.length < numCartas; i++) {
+    jogos.sort(comparador);
     jogos.push(`<div class="cards" onclick="virar(this)">
     <div class="back escondido"><img src="${gifs[i]}"/></div>
     <div class="front"><img src="imagens/front.png"/></div>
+    </div>`, `<div class="cards" onclick="virar(this)">
+    <div class="back escondido"><img src="${gifs[i]}"/></div>
+    <div class="front"><img src="imagens/front.png"/></div>
     </div>`);
-  const distribuicao = document.querySelector(".distribuicao");
-  distribuicao.innerHTML += jogos[i].concat(jogos[i]);
+    jogos.sort(comparador);
   }
-  jogos.sort(comparador);
+  console.log(jogos)
+
+//mostrar baralho
+function mostrarBaralho() {
+  let contador = 0;
+  while (contador < jogos.length) {
+  const distribuicao = document.querySelector(".distribuicao");
+  distribuicao.innerHTML += jogos[contador]; 
+  contador++
+  }
 }
 
-criarBaralhoAleatorio();
+mostrarBaralho();
 
-function comparador() {
-  return Math.random() - 0.5;
+
+
+
+function comparador() { 
+	return Math.random() - 0.5; 
 }
+
+
 //clicar na carta
 
 let cardsClicados = [];
