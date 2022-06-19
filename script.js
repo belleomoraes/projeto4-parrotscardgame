@@ -50,8 +50,10 @@ function comparador() {
 
 
 //clicar na carta
-let cardsClicados = [];
+let primeiraCarta;
+let segundaCarta;
 let clicks = 0;
+let cartasEscolhidas = []
 function virar(carta) {
   let frente = carta.querySelector(".front");
   let verso = carta.querySelector(".back");
@@ -64,18 +66,13 @@ function virar(carta) {
     verso.classList.remove("escondido");
     clicks ++;
   }
-  console.log(clicks);
-  cardsClicados.push(carta);
-  console.log(cardsClicados)
   carta.querySelector(".front").classList.add("escondido");
   carta.querySelector(".back").classList.remove("escondido");
+  
+  cartasEscolhidas.push(carta);
+
+  if (cartasEscolhidas.length >= 3) {
+  carta.querySelector(".front").classList.remove("escondido");
+  carta.querySelector(".back").classList.add("escondido");
+  }
 }
-
-
-
-
-
-
-
-
-
