@@ -56,6 +56,7 @@ let clicks = 0;
 let cartasEscolhidas = [];
 let comparandoCartas = [];
 function virar(carta) {
+  carta.classList.toggle("virada");
   let frente = carta.querySelector(".front");
   let verso = carta.querySelector(".back");
   let foiClicado = frente.classList.contains("escondido");
@@ -83,7 +84,7 @@ function virar(carta) {
   }
 
   if (cartasEscolhidas.length === numCartas) {
-    alert(`Você ganhou em ${clicks} jogadas`);
+    setTimeout (finalizarJogo, 1000)
   }
 }
 
@@ -117,4 +118,8 @@ function desvirarCarta() {
 
 function resetaArray() {
   comparandoCartas = [];
+}
+
+function finalizarJogo () {
+  alert(`Você ganhou em ${clicks} jogadas`);
 }
